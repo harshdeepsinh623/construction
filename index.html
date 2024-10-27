@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Logo" class="logo">
+            <h3 class="h3">Machinery</h3>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="About-us.html">About us</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div class="container-fluid" id="home">
+        <div class="slider">
+            <div id="slide1" class="slide slide1">
+                <div class="overlay">
+                    <h2>Excavators for Every Project</h2>
+                    <p>Our high-quality excavators are built to handle the toughest terrains, offering durability and
+                        precision for any large-scale construction project.</p>
+                    <button class="now">Explore Excavators</button>
+                </div>
+            </div>
+
+            <div id="slide2" class="slide slide2">
+                <div class="overlay">
+                    <h2>Unmatched Power with Bulldozers</h2>
+                    <p>Designed for heavy-duty work, our bulldozers provide reliable power and performance, making them
+                        ideal for earthmoving and grading tasks.</p>
+                </div>
+            </div>
+
+            <div id="slide3" class="slide slide3">
+                <div class="overlay">
+                    <h2>Versatile Loaders for Efficient Handling</h2>
+                    <h1>Strong and Reliable</h1>
+                    <p>From lifting to loading, our loaders offer versatility and efficiency, ensuring your construction
+                        projects are completed smoothly and on time.</p>
+                    <button class="now">Discover Loaders</button>
+                </div>
+            </div>
+
+            <div id="slide4" class="slide slide4">
+                <div class="overlay">
+                    <h2>Reach New Heights with Our Cranes</h2>
+                    <p>Engineered for lifting and transporting heavy loads, our cranes bring high precision and safety
+                        to your construction operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dots">
+        <a href="#slide1"></a>
+        <a href="#slide2"></a>
+        <a href="#slide3"></a>
+        <a href="#slide4"></a>
+    </div>
+
+    <div class="company-cards">
+        <div class="card">
+            <img src="images/vision.jpg" alt="Vision Image" class="card-image">
+            <div class="card-content">
+                <h2>Our Vision</h2>
+                <p>To empower global infrastructure projects with cutting-edge, reliable, and sustainable machinery that
+                    enhances the efficiency, safety, and success of civil engineering work. We envision a world where
+                    innovation in machinery.</p>
+                <button class="read-more" onclick="showMore('vision')">Learn More</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/mission.jpg" alt="Mission Image" class="card-image">
+            <div class="card-content">
+                <h2>Our Mission</h2>
+                <p>To drive the advancement of civil engineering projects by delivering high-quality, efficient, and
+                    sustainable machinery solutions. Our commitment is to support the construction industry with
+                    equipment that enhances safety.</p>
+                <button class="read-more" onclick="showMore('mission')">Learn More</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/goals.jpg" alt="Goals Image" class="card-image">
+            <div class="card-content">
+                <h2>Our Goals</h2>
+                <p>To innovate continuously, ensuring our machinery meets the highest standards of efficiency,
+                    sustainability, and durability. We aim to provide reliable, top-tier equipment that empowers civil
+                    engineering teams worldwide.</p>
+                <button class="read-more" onclick="showMore('goals')">Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="welcome-container">
+        <div class="welcome-content">
+            <h1>Welcome to Construction Machinery!</h1>
+            <p>Welcome to our world of cutting-edge construction machinery, where innovation meets durability. Our products are crafted
+            to provide unmatched efficiency and reliability for every construction project, whether large-scale or compact. Designed
+            with advanced engineering and high-grade materials, each piece of machinery promises performance that withstands the
+            most challenging environments. From powerful excavators to versatile loaders, we offer a comprehensive range tailored to
+            meet the unique needs of every job sites
+            </p>
+        </div>
+        <div class="image">
+            <img src="https://media.istockphoto.com/id/887465766/photo/road-construction-machinery-on-the-construction-of-highway.jpg?s=612x612&w=0&k=20&c=75DpFIj4gUJ7gPodIGAcKkpS2JScsoeQLGcGRxFRgLg=" alt="Construction Machinery">
+        </div>
+        <div class="machinery">
+            <h3 class="machinery-title">Our Machinery</h3>
+            <p>Excavators</p>
+            <p>Bulldozers</p>
+            <p>Loaders</p>
+            <p>Cranes</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="product-section">
+        <h2>Our Products</h2>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="slider1" id="product-slider">
+            <div class="slides1">
+                <div class="slidex">
+                    <img src="images/Excavator.jpg" alt="Excavator" class="slide-image">
+                    <p class="image-text">Excavator</p>
+                </div>
+                <div class="slidex">
+                    <img src="images/bulldozer.jpg" alt="Bulldozer" class="slide-image">
+                    <p class="image-text">Bulldozer</p>
+                </div>
+                <div class="slidex">
+                    <img src="images/loader.jpg" alt="Loader" class="slide-image">
+                    <p class="image-text">Loader</p>
+                </div>
+                <div class="slidex">
+                    <img src="images/Crane.jpg" alt="Crane" class="slide-image">
+                    <p class="image-text">Crane</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <a href="#top">
+                <center>Back to top
+            </a></center>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Customer Support</a></li>
+                        <li><a href="#">Maintenance Guide</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Spare Parts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>More</h3>
+                    <ul>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Financing Options</a></li>
+                        <li><a href="#">Leasing</a></li>
+                        <li><a href="#">Used Equipment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-media">
+                        <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/harshdeepsinh32" target="_blank" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/HarshdeepsinhGohil" target="_blank" class="social-icon"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" class="social-icon"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <center>&copy; 2025 Machinery Co. All rights reserved.</center>
+            </p>
+            <p>
+                <center><a href="tel:+91 1234567890">Mobile: +91 1234567890</a></center>
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+
+         function toggleMenu() {
+                const navLinks = document.getElementById("navLinks");
+                navLinks.classList.toggle("show");
+            }
+
+        $(document).ready(function () {
+            $(".card-content").hover(function () {
+                $(this).css("transform", "scale(1.05)");
+            });
+
+            $(".card-content").mouseleave(function () {
+                $(this).css("transform", "scale(1)");
+            });
+
+            $(".card-image").hover(function () {
+                $(this).css("background", "linear-gradient(rgba(205, 201, 195, 0.8), rgba(205, 201, 195, 0.8))");
+            });
+
+            $(".card-image").mouseleave(function () {
+                $(this).css("transform", "scale(1)");
+            });
+            
+            document.getElementById('show').addEventListener('click', function () {
+                const nav = document.querySelector('.nav');
+                nav.classList.toggle('active'); 
+            });
+
+        });
+        
+    </script>
+
+</body>
+
+</html>

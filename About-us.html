@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        h3{
+            font-size: 30px;
+        }
+
+        .company-name {
+            height: 30px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .nav-links li a:hover {
+            background-color: gray;
+            color: red;
+            transition: all .6s linear;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100px;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            font-family: Arial, sans-serif;
+        }
+
+        .about-container h1 {
+            text-align: center;
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .about-container h2 {
+            color: #333;
+            font-size: 28px;
+            margin: 20px 0;
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            text-align: center;
+        }
+
+        .about-container p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+       .about-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-section p {
+            text-align: left;
+        }
+
+        .right-image {
+            float: right;
+            width: 100%;
+            max-width: 750px; 
+            height: auto; 
+            margin: 10px 0 20px 200px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            display: block; 
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        @media (max-width: 768px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .right-image {
+                margin: 0 auto;
+            }
+        }
+
+       .footer-top {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .footer-top a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-top a:hover {
+            color: #ff6347;
+        }
+
+        .footer-content {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-left: 3%;
+        }
+
+        .footer-column {
+            width: 22%;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #555;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #ff6347;
+            transition: width 0.3s ease;
+        }
+
+        .footer-column h3:hover::after {
+            width: 100%;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: left;
+            gap: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .social-icon {
+            color: #000000;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #ff6347;
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            color: #bbb;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .footer-bottom a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Logo" class="logo">
+            <h3 class="h3">Machinery</h3>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="#about">About us</a></li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+<div class="about-container">
+    <h1>About Us</h1>
+    <p>Welcome to our company! We are a dedicated team of professionals committed to providing top-quality
+        construction machinery and services. With years of experience in the industry, we understand the importance
+        of reliable equipment and exceptional service. Our mission is to support construction projects of all sizes
+        by offering innovative solutions tailored to our clients' needs.</p>
+    <p>Our journey began with a vision to revolutionize the construction machinery market. We pride ourselves on our
+        extensive range of products, including excavators, bulldozers, loaders, and more. Each piece of equipment is
+        rigorously tested to ensure it meets our high standards for performance and durability.</p>
+    <p>At the heart of our operations is a commitment to sustainability and customer satisfaction. We strive to
+        minimize our environmental impact while delivering value to our customers. Our team is passionate about what
+        they do, and we believe that collaboration and communication are key to achieving success.</p>
+    <p>Thank you for considering us for your construction needs. We look forward to working with you!</p>
+
+    <h2>About Construction Machinery</h2>
+    <div class="about-section">
+       
+        <p>
+            Investing in the right construction equipment not only streamlines
+            operations but also contributes to the overall success and safety of construction endeavors.
+        </p>
+        <img src="https://th.bing.com/th/id/R.01b2702a7cad82ce22aa632e915b577e?rik=x0tdQZiQLin0Cw&riu=http%3a%2f%2fwww.ukmachineryagents.co.uk%2fwp-content%2fuploads%2f2018%2f02%2fconstruction-equipment-telene.jpeg&ehk=nKQ7oSzA2cs6ZXvreQvgKRXoi6v%2bzsibG3gFCmNznc8%3d&risl=&pid=ImgRaw&r=0"
+            alt="Construction Machinery" class="right-image">
+
+
+            <p>
+                Construction machinery plays a vital role in the modern construction industry, enabling efficient and
+                effective
+                project execution. These heavy-duty machines are designed to perform a variety of tasks, from excavation and
+                earthmoving to lifting and demolition. Key types of construction machinery include excavators, bulldozers,
+                cranes, loaders, and graders, each engineered to handle specific jobs with precision and power.
+            </p>
+            <p>
+                The evolution of technology in this field has led to advancements such as automation, telematics, and
+                fuel-efficient engines,
+                enhancing productivity while reducing environmental impact. Additionally, construction machinery is often
+                built
+                to withstand harsh conditions and heavy workloads, ensuring longevity and reliability on the job site.
+            </p>
+    </div>
+
+    <h2>Significance of Construction Machinery</h2>
+    <p>The significance of construction machinery lies in its ability to reduce manual labor, minimize project
+        timelines, and
+        increase safety. These machines enable workers to perform heavy-duty tasks that would be physically demanding
+        and
+        time-consuming without mechanization. For example, excavators and bulldozers are capable of moving large volumes
+        of
+        earth in a fraction of the time it would take manual laborers. As a result, construction projects can progress
+        faster,
+        allowing for quicker returns on investment and the ability to meet tight deadlines.</p>
+
+    <h2>Technological Advancements</h2>
+    <p>The construction machinery industry has seen significant advancements in technology, enhancing the efficiency and
+        effectiveness of these machines. Innovations such as telematics and GPS systems allow for better tracking of
+        machinery,
+        optimizing performance, and reducing fuel consumption. Automation is also becoming more prevalent, with
+        autonomous
+        machines capable of performing tasks with minimal human intervention.</p>
+    <p>Additionally, modern construction machinery is increasingly designed with sustainability in mind. Many
+        manufacturers are
+        producing equipment that meets stringent environmental regulations, featuring lower emissions and fuel-efficient
+        engines. This shift towards greener machinery not only helps to protect the environment but also contributes to
+        the
+        overall sustainability of construction projects.</p>
+
+    <h2>Conclusion</h2>
+    <p>As the demand for infrastructure continues to grow globally, construction machinery remains a cornerstone of the
+        industry. Investing in high-quality machinery not only streamlines construction processes but also enhances
+        safety and
+        productivity on site. With ongoing advancements in technology and a focus on sustainability, the future of
+        construction
+        machinery looks promising, paving the way for more efficient and eco-friendly construction practices.</p>
+</div>
+
+<footer>
+    <div class="footer-top">
+        <a href="#top">
+            <center>Back to top
+        </a></center>
+    </div>
+
+    <div class="footer-content">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Customer Support</a></li>
+                    <li><a href="#">Maintenance Guide</a></li>
+                    <li><a href="#">Warranty Policy</a></li>
+                    <li><a href="#">Spare Parts</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>More</h3>
+                <ul>
+                    <li><a href="#">Offers</a></li>
+                    <li><a href="#">Financing Options</a></li>
+                    <li><a href="#">Leasing</a></li>
+                    <li><a href="#">Used Equipment</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-media">
+                    <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/harshdeepsinh32" target="_blank" class="social-icon"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/in/HarshdeepsinhGohil" target="_blank" class="social-icon"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/yourprofile" target="_blank" class="social-icon"><i
+                            class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            <center>&copy; 2025 Machinery Co. All rights reserved.</center>
+        </p>
+        <p>
+            <center><a href="tel:+91 1234567890">Mobile: +91 1234567890</a></center>
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script>
+
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("show");
+    }
+
+</script>
+
+</body>
+
+</html>

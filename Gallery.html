@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        h3{
+            font-size: 30px;
+        }
+
+        .company-name {
+            height: 30px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        .nav-links li a:hover {
+            background-color: gray;
+            color: red;
+            transition: all .6s linear;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 100px;
+                right: 0;
+                background-color: #333;
+                width: 100%;
+                flex-direction: column;
+                display: none;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .gallery-container h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item p {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            font-size: 16px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover p {
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                margin-top: 200px;
+            }
+        }
+
+        .footer-top {
+            background-color: #333;
+            padding: 10px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .footer-top a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-top a:hover {
+            color: #ff6347;
+        }
+
+        .footer-content {
+            background-color: #222;
+            color: #fff;
+            padding: 40px 0;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-left: 3%;
+        }
+
+        .footer-column {
+            width: 22%;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #555;
+            padding-bottom: 5px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background-color: #ff6347;
+            transition: width 0.3s ease;
+        }
+
+        .footer-column h3:hover::after {
+            width: 100%;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: left;
+            gap: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .social-icon {
+            color: #000000;
+            font-size: 30px;
+            text-decoration: none;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: #ff6347;
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            color: #bbb;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            animation: slideInUp 1s ease-in-out;
+        }
+
+        .footer-bottom a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .footer-column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+            <img src="images/logo.jpg" alt="Logo" class="logo">
+            <h3 class="h3">Machinery</h3>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="About-us.html">About us</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <div class="gallery-container">
+        <h1>Our Gallery</h1>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/887465766/photo/road-construction-machinery-on-the-construction-of-highway.jpg?s=612x612&w=0&k=20&c=75DpFIj4gUJ7gPodIGAcKkpS2JScsoeQLGcGRxFRgLg=" alt="Product 1">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/854398430/photo/heavy-machinery-in-repair-works-of-a-motorway.jpg?s=612x612&w=0&k=20&c=ASXGSEEml28FZEQsLdB41ikrejxWnhzQj6QRkVS9gJg=" alt="Product 2">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://st.depositphotos.com/1060177/1222/i/450/depositphotos_12226701-stock-photo-construction-tractor-in-dubai-palm.jpg" alt="Product 3">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://img.freepik.com/premium-photo/heavy-machinery-used-construction-industry_731790-103775.jpg?semt=ais_hybrid" alt="Product 4">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/474445139/photo/industrial-truck-loader-excavator-moving-earth-and-unloading-int.jpg?s=612x612&w=0&k=20&c=osrShn8cH1R9jGBSvMBngTEEtYSYE9APmyahgotHpas=" alt="Product 5">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.topmarkfunding.com/wp-content/uploads/2020/04/Types-of-heavy-equipment-for-construction.jpg" alt="Product 6">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://media.istockphoto.com/id/104501743/photo/mobile-crane-with-its-boom-risen-outdoors.jpg?s=612x612&w=0&k=20&c=0u1Ij6McPQ4xAIhSpniZegok_2vIP6ZQKE_TE0N4r5Y=" alt="Product 7">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.shutterstock.com/image-photo/mobile-crane-on-road-tower-600nw-746685397.jpg" alt="Product 8">
+                <p>Construction Machinery</p>
+            </div>
+            <div class="gallery-item">
+                <img src="https://img.freepik.com/premium-photo/dump-truck-carrying-load-soil-construction-site-best-dump-truck-image_1020697-17514.jpg" alt="Product 9">
+                <p>Construction Machinery</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-top">
+            <a href="#top">
+                <center>Back to top
+            </a></center>
+        </div>
+    
+        <div class="footer-content">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Customer Support</a></li>
+                        <li><a href="#">Maintenance Guide</a></li>
+                        <li><a href="#">Warranty Policy</a></li>
+                        <li><a href="#">Spare Parts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>More</h3>
+                    <ul>
+                        <li><a href="#">Offers</a></li>
+                        <li><a href="#">Financing Options</a></li>
+                        <li><a href="#">Leasing</a></li>
+                        <li><a href="#">Used Equipment</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Follow Us</h3>
+                    <div class="social-media">
+                        <a href="https://twitter.com/yourprofile" target="_blank" class="social-icon"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/harshdeepsinh32" target="_blank" class="social-icon"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/HarshdeepsinhGohil" target="_blank" class="social-icon"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://facebook.com/yourprofile" target="_blank" class="social-icon"><i
+                                class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <center>&copy; 2025 Machinery Co. All rights reserved.</center>
+            </p>
+            <p>
+                <center><a href="tel:+91 1234567890">Mobile: +91 1234567890</a></center>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+
+        function toggleMenu() {
+            const navLinks = document.getElementById("navLinks");
+            navLinks.classList.toggle("show");
+        }
+
+    </script>
+    
+</body>
+</html>
