@@ -24,7 +24,7 @@ html {
     justify-content: space-between;
     align-items: center;
     background-color: #333;
-    padding: 10px 20px;
+    padding: 10px 10px;
 }
 
 .logo-container {
@@ -104,9 +104,7 @@ h3{
 
 .toggle-container {
     display: flex;
-    /* Align buttons horizontally */
     gap: 20px;
-    /* Space between buttons */
 }
 
 .toggle-button {
@@ -114,32 +112,46 @@ h3{
     background: none;
     cursor: pointer;
     font-size: 24px;
-    /* Font size for icons */
     transition: color 0.5s;
-    /* Smooth color transition */
 }
 
-/* Dark theme styles */
 body.dark {
     background-color: black;
-    /* Dark background */
     color: white;
-    /* Light text */
 }
 
 body.dark .toggle-button {
     color: white;
-    /* Light icon color */
 }
 
 body.dark .toggle-button.sun {
     color: gray;
-    /* Adjust sun icon color in dark mode */
 }
 
 body.dark .toggle-button.moon {
     color: yellow;
-    /* Adjust moon icon color in dark mode */
+}
+
+@media (max-width: 768px) {
+    .toggle-button {
+        font-size: 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-container {
+        gap: 10px;
+    }
+
+    .toggle-button{
+        font-size: 20px;
+        width: 100%;
+    }
+
+    body {
+        justify-content: center;
+    }
 }
 
 .container-fluid {
@@ -380,7 +392,7 @@ body.dark .toggle-button.moon {
     .card-image,
     .card-content {
         width: 100%;
-        margin: 10px 0;
+        margin: 50px 0;
     }
 }
 
