@@ -7,6 +7,16 @@
 body {
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 .navbar {
@@ -90,6 +100,46 @@ h3{
     .nav-links.show {
         display: flex;
     }
+}
+
+.toggle-container {
+    display: flex;
+    /* Align buttons horizontally */
+    gap: 20px;
+    /* Space between buttons */
+}
+
+.toggle-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 24px;
+    /* Font size for icons */
+    transition: color 0.5s;
+    /* Smooth color transition */
+}
+
+/* Dark theme styles */
+body.dark {
+    background-color: black;
+    /* Dark background */
+    color: white;
+    /* Light text */
+}
+
+body.dark .toggle-button {
+    color: white;
+    /* Light icon color */
+}
+
+body.dark .toggle-button.sun {
+    color: gray;
+    /* Adjust sun icon color in dark mode */
+}
+
+body.dark .toggle-button.moon {
+    color: yellow;
+    /* Adjust moon icon color in dark mode */
 }
 
 .container-fluid {

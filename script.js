@@ -57,4 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nextButton) {
         nextButton.addEventListener("click", () => moveSlide(1));
     }
+
+     window.onload = function() {
+            document.body.classList.add('loaded');
+        };
 });
