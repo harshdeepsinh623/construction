@@ -571,11 +571,12 @@ body.dark .toggle-button.moon {
 }
 
 .prev {
-    left: 300px;
+    left: -20px;
+    margin-top: 20px;
 }
 
 .next {
-    right: -300px;
+    right: 20px;
 }
 
 .prev:hover,
@@ -621,8 +622,7 @@ body.dark .toggle-button.moon {
 
     .prev,
     .next{
-        margin-right: 490px; 
-        padding: 15px;
+        padding: 15px 20px;
     }
 }
 
